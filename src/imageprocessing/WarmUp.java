@@ -1,16 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Student
- */
 public class WarmUp {
     public static void main(String[] args) {
-        //System.out.println("Hello World!");
+//        System.out.println("Hello World!");
 //        boolean check = true;
 //        if(!check){
 //            System.out.println("It's true");
@@ -18,7 +8,7 @@ public class WarmUp {
 //            System.out.println("It's false");
 //        }
 
-//    int i=2;
+//    int i = 2;
 //        switch (i) {
 //            case 0:
 //                System.out.println("Do something here!");
@@ -31,12 +21,12 @@ public class WarmUp {
 //                break;
 //        }
     
-    //boolean isTrue = true;//Initial Value
-//    int i=0;
+//    boolean isTrue = true; //Initial Value
+//    int i = 0;
 //    while(i<5){ //Compare
 //        System.out.println("It's true!");
 //        i++;
-//        //isTrue = false; //Altering Value
+//        isTrue = false; //Altering Value
 //    }
 
 //    do{
@@ -45,8 +35,8 @@ public class WarmUp {
 //        System.out.println("Others");
 //    }while(false);
 
-//        for (int i = 0; i < 5; i++) {//outer loop
-//            for (int j = 0; j+i < 5; j++) {//inner loop
+//        for (int i = 0; i < 5; i++) { //outer loop
+//            for (int j = 0; j+i < 5; j++) { //inner loop
 //                System.out.print("*");
 //            }
 //            System.out.println("");
