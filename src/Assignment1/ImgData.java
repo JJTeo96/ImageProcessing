@@ -38,6 +38,18 @@ public class ImgData {
                 System.out.print(hex);
                 i++;
             }
+            System.out.println("");
+            
+            System.out.print("Offset        : ");
+            while((i<=8)&&((value = myInputFile.read())!= -1)){
+                hex = Integer.toHexString(value);
+                if(value == 0){
+                    hex = "";
+                }
+                System.out.print(hex);
+                i++;
+            }
+            
             
             
 //            while((value = myInputFile.read())!= -1){
@@ -56,6 +68,7 @@ public class ImgData {
         }
     }
 }
+
 
 public class ImgData {
 public static void main(String[] args) {
@@ -228,6 +241,5 @@ String hex = String.format("%02X", value);
 return value;
 }
 }
-
 
 
