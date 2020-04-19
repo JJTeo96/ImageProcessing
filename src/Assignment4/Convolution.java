@@ -10,7 +10,7 @@ import java.util.Scanner;
  * and open the template in the editor.
  */
 
-public class LowPassFilter {
+public class Convolution {
     public static void main(String[] args) {
         try{
             Scanner myObj = new Scanner(System.in);
@@ -19,7 +19,7 @@ public class LowPassFilter {
             System.out.println("Enter Image Name : "); 
             file = myObj.nextLine();
             FileInputStream myInputFile = new FileInputStream("image/"+file+".raw");
-            FileOutputStream myOutputFile = new FileOutputStream("image/"+file+"_LowPassFilter.raw");
+            FileOutputStream myOutputFile = new FileOutputStream("image/"+file+"_convolution.raw");
             
             int value;
             int i=0;
@@ -44,7 +44,6 @@ public class LowPassFilter {
                 start_Width++;
                 i++;
             }
-            
             for(int m=0;m<height;m++){
                 for(int n=0;n<width;n++){
                     if((n==0)||(m==0)||(m==(height-1))||(n==(width-1))){
@@ -53,11 +52,9 @@ public class LowPassFilter {
                 }
             }
             
-            int[][] convolution = { { 1, 1, 1 }, { 1, 1, 1 },{ 1, 1, 1 } };
+            int[][] convolution = { { -1, 0, 1 }, { -2, 0, 2 },{ -1, 0, 1 } };
             int sum = 0;
             int[][] f_data = new int[height][width];
-            int f_sum = 0;
-            
             for(int y=1;y<(height-2);y++){
                 for(int x=1;x<(width-2);x++){
                     sum = ((convolution[0][0]*data[y+1][x+1])+
@@ -69,17 +66,15 @@ public class LowPassFilter {
                             (convolution[0][2]*data[y-1][x+1])+
                             (convolution[1][2]*data[y-1][x])+
                             (convolution[2][2]*data[y-1][x-1]));
-                    
-                    f_sum = sum / (int) Math.pow(convolution.length, 2); 
-                    f_data[y][x] = f_sum;
-                    if(f_sum<0){
+                    f_data[y][x] = sum;
+                    if(sum<0){
                         f_data[y][x] = 0;
-                    }else if(f_sum>255){
+                    }else if(sum>255){
                         f_data[y][x] = 255;
                     }
                 }
             }
-          
+            
             for(int k=0;k<height;k++){
                 for(int l=0;l<width;l++){
                         myOutputFile.write(f_data[k][l]);
